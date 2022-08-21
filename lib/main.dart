@@ -1,6 +1,5 @@
-// ignore_for_file: deprecated_member_use
-
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show AppBar, BuildContext, Center, Colors, Column, EdgeInsets, Icon, Icons, InputDecoration, Key, MainAxisAlignment, MaterialApp, Padding, Scaffold, State, StatefulWidget, StatelessWidget, Text, TextField, TextInputType, Widget, runApp;
+import 'page/login.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,12 +9,14 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // ignore: prefer_const_constructors
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Planteco',
-      theme: ThemeData(
-        primarySwatch: Colors.green,
-      ),
-      home: MyHomePage(),
+      // theme: ThemeData(
+      //   primarySwatch: Colors.brown,
+      // ),
+      home: const MyHomePage(),
     );
   }
 }
@@ -30,23 +31,12 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("PLanteco"),
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          FlatButton(
-            onPressed: () {
-              print("-----Valider-----");
-            },
-            child: Text("valide"),
-            color: Colors.blueAccent,
-            textColor: Colors.white,
+      body: Center(
+        
           ),
-        ],
-      ),
+
     );
   }
 }
