@@ -1,22 +1,27 @@
-import 'package:flutter/material.dart' show AppBar, BuildContext, Center, Colors, Column, EdgeInsets, Icon, Icons, InputDecoration, Key, MainAxisAlignment, MaterialApp, Padding, Scaffold, State, StatefulWidget, StatelessWidget, Text, TextField, TextInputType, Widget, runApp;
+import 'package:flutter/material.dart';
 import 'page/login.dart';
+import 'page/splashScreen.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 void main() {
   runApp(MyApp());
 }
 
-// ignore: use_key_in_widget_constructors
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
     // ignore: prefer_const_constructors
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Planteco',
+      theme: ThemeData( scaffoldBackgroundColor: HexColor("#F6F6F6"),),
       // theme: ThemeData(
       //   primarySwatch: Colors.brown,
       // ),
-      home: const MyHomePage(),
+      home: const LoginPage(),
+      
     );
   }
 }
@@ -32,9 +37,11 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     
+    // ignore: prefer_const_constructors
     return Scaffold(
+      // ignore: prefer_const_constructors
       body: Center(
-        
+        child: const Text("Salut"),
           ),
 
     );
