@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class settingPage extends StatefulWidget {
-  const settingPage({Key? key}) : super(key: key);
+class dataPage extends StatefulWidget {
+  const dataPage({Key? key}) : super(key: key);
 
   @override
-  State<settingPage> createState() => _settingPageState();
+  State<dataPage> createState() => _dataPageState();
 }
 
-class _settingPageState extends State<settingPage> {
+class _dataPageState extends State<dataPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +18,7 @@ class _settingPageState extends State<settingPage> {
         title: const Padding(
           padding: EdgeInsets.only(top: 10),
           child: Text(
-            "Paramètre",
+            "Collection",
             style: TextStyle(
                 fontFamily: 'Montserrat',
                 fontSize: 30,

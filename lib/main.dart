@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:planteco/page/home.dart';
 import 'page/login.dart';
 import 'page/splashScreen.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'page/inscription.dart';
+import 'navbar.dart';
+import 'page/home.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,7 +24,7 @@ class MyApp extends StatelessWidget {
       // theme: ThemeData(
       //   primarySwatch: Colors.brown,
       // ),
-      home: const LoginPage(),
+      home:  const NavBar(),
       
     );
   }
@@ -28,6 +32,7 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
+
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
