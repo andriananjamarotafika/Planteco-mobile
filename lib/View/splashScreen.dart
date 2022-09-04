@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
@@ -8,6 +10,13 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  
+
+  @override
+  void initState(){
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
           child: Column(
             children: [
               Image.asset('images/logo.png',width: 200,height: 200,),
-              SizedBox(height: 10,),
+              const SizedBox(height: 10,),
               Container(
                 width: 150,
                 height: 3,

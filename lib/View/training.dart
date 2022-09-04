@@ -14,17 +14,17 @@ class _trainingPageState extends State<trainingPage> {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.transparent,
-        elevation: 0,  
+        elevation: 0,
         title: const Padding(
           padding: EdgeInsets.only(top: 10),
           child: Text(
             "Formation",
             style: TextStyle(
-                fontFamily: 'Montserrat',
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
-                ),
+              fontFamily: 'Montserrat',
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            ),
           ),
         ),
       ),

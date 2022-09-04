@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "827165626861",
+    "project_id": "planteco-d6837",
+    "storage_bucket": "planteco-d6837.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:827165626861:android:366dea4dc10c2a17ea17e4",
+        "android_client_info": {
+          "package_name": "com.planteco.planteco"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "827165626861-2evt5ffmjea86shbo82oq6vbot0kgggm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.planteco.planteco",
+            "certificate_hash": "4a55d40a1144da233c226d6dead8f29adaa97f97"
+          }
+        },
+        {
+          "client_id": "827165626861-a6avipap00vkqonj6f1qk4e65o1t3kd6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6k5tPU9v_nl0sJLRxzDCJYsiEQYzaMwo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "827165626861-a6avipap00vkqonj6f1qk4e65o1t3kd6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
