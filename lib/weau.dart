@@ -10,73 +10,81 @@ import 'package:provider/provider.dart';
 
 
 Widget eau(BuildContext context) {
-    return ChangeNotifierProvider<ViewModel>(
-      create: (context) => ViewModel(),
-      child: Consumer<ViewModel>(
+    return ChangeNotifierProvider<ViewModelEau>(
+      create: (context) => ViewModelEau(),
+      child: Consumer<ViewModelEau>(
         builder: (context, provider, child) {
           return  AnimatedContainer(
             height: context.height(),
             width: context.width(),
             duration: 500.milliseconds,
             //color: getBackGroundColor(provider.myList[1].value),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    //CERCLE EXTERIEUR
-                    AnimatedContainer(
-                      duration: 500.milliseconds,
-                      width: 260,
-                      height: 260,
-                      decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(1),
-                          shape: BoxShape.circle),
-                    ),
-
-                    //CERCLE INTERIEUR
-                    DemoSemiCircleWidget(
-                      diameter: 200,
-                      sweepAngle: ((provider.myList[1].value - 15) * 12.0)
-                          .clamp(0.0, 180.0),
-                      color: getSliderColor(provider.myList[1].value),
-                    ),
-
-                    //COULEUR CERCLE INTERIEUR
-                    AnimatedContainer(
-                      duration: 500.milliseconds,
-                      width: 200,
-                      height: 200,
-                      decoration: BoxDecoration(
-                          color: context.cardColor,
-                          shape: BoxShape.circle,
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.3),
-                              spreadRadius: 5,
-                              blurRadius: 7,
-                              offset: const Offset(0, 3),
-                            ),
-                          ]),
-                    ),
-
-                    //INDICATION TEMPERATURE A L'INTERIEUR DU CERCLE
-                    Text(
-                      '${convertToInt(provider.myList[1].value)}°C',
-                      style: boldTextStyle(size: 60, weight: FontWeight.w600),
-                    ),
-                  ],
-                ),
-
-                //BARRE SLIDER EN BAS
-                DemoTemperatureWidget(
-                  temperature: provider.myList[1],
-                  onChanged: (value) {
-                    provider.changeValue(value);
-                  },
-                ).paddingBottom(16.0),
-              ],
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+              color: Color.fromARGB(255, 220, 220, 220),
+              ),
+              margin: EdgeInsets.only(top: 20),
+              padding: EdgeInsets.only(top: 20),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      //CERCLE EXTERIEUR
+                      AnimatedContainer(
+                        duration: 500.milliseconds,
+                        width: 260,
+                        height: 260,
+                        decoration: BoxDecoration(
+                            color: Colors.white.withOpacity(1),
+                            shape: BoxShape.circle),
+                      ),
+            
+                      //CERCLE INTERIEUR
+                      DemoSemiCircleWidget(
+                        diameter: 200,
+                        sweepAngle: ((provider.myList[1].value - 15) * 12.0)
+                            .clamp(0.0, 180.0),
+                        color: getSliderColor(provider.myList[1].value),
+                      ),
+            
+                      //COULEUR CERCLE INTERIEUR
+                      AnimatedContainer(
+                        duration: 500.milliseconds,
+                        width: 200,
+                        height: 200,
+                        decoration: BoxDecoration(
+                            color: context.cardColor,
+                            shape: BoxShape.circle,
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.3),
+                                spreadRadius: 5,
+                                blurRadius: 7,
+                                offset: const Offset(0, 3),
+                              ),
+                            ]),
+                      ),
+            
+                      //INDICATION TEMPERATURE A L'INTERIEUR DU CERCLE
+                      Text(
+                        '${convertToInt(provider.myList[1].value)}°C',
+                        style: boldTextStyle(size: 60, weight: FontWeight.w600),
+                      ),
+                    ],
+                  ),
+            
+                  //BARRE SLIDER EN BAS
+                  DemoTemperatureWidget(
+                    temperature: provider.myList[1],
+                    onChanged: (value) {
+                      provider.changeValue(value);
+                    },
+                  ).paddingBottom(16.0),
+                ],
+              ),
             ),
           );
         },

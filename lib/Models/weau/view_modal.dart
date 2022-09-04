@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'ItemModal.dart';
 
-class ViewModel extends ChangeNotifier {
+class ViewModelEau extends ChangeNotifier {
   List<dynamic> myList = itemList;
 
   activateStatus(int index, bool status) {

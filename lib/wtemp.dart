@@ -10,9 +10,9 @@ import 'package:provider/provider.dart';
 
 
 Widget temp(BuildContext context) {
-    return ChangeNotifierProvider<ViewModel>(
-      create: (context) => ViewModel(),
-      child: Consumer<ViewModel>(
+    return ChangeNotifierProvider<ViewModelTemp>(
+      create: (context) => ViewModelTemp(),
+      child: Consumer<ViewModelTemp>(
         builder: (context, provider, child) {
           return  AnimatedContainer(
             height: context.height(),

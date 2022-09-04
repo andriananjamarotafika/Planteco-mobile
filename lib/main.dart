@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:planteco/temperature.dart';
 import 'package:planteco/view/home.dart';
 import 'view/login.dart';
 import 'package:hexcolor/hexcolor.dart';

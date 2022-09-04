@@ -1,10 +1,10 @@
 import 'ItemModal.dart';
 
-class Temperature extends Item {
+class TemperatureEau extends Item {
   int speed;
   double? value;
 
-  Temperature({
+  TemperatureEau({
     name,
     iconOn,
     iconOff,

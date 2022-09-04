@@ -1,9 +1,7 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:planteco/collection.dart';
-import 'package:planteco/temperature.dart';
-import 'main.dart';
+import 'package:planteco/settingPage.dart';
 import 'view/home.dart';
 import 'view/dataCollect.dart';
 
@@ -39,7 +37,7 @@ class _NavibarState extends State<Navibar> {
           },
           children: const <Widget>[
             HomePage(),
-            DemoTemperatureWidgetScreen(),
+            SettingPage(),
             Collection(),
             dataPage()
           ],

@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'temperature.dart';
+import 'package:planteco/Models/wtime/temperature.dart';
+
 
 class Item {
   Item({
@@ -31,7 +32,7 @@ List<dynamic> itemList = [
     color: Color(0xFFFD443C),
     type: ItemType.light,
   ),
-  Temperature(
+  TemperatureTime(
     name: 'Smart AC',
     iconOn: Icons.ac_unit,
     iconOff: Icons.ac_unit,

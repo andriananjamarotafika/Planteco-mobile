@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:planteco/Models/weau/temperature.dart';
+import 'package:planteco/Models/wtemp/temperature.dart';
 
 
 class DemoTemperatureWidget extends StatefulWidget {
-  Temperature? temperature;
+  TemperatureTemp ? temperature;
   Function(double)? onChanged;
 
   DemoTemperatureWidget({this.temperature, this.onChanged});

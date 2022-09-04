@@ -31,7 +31,7 @@ List<dynamic> itemList = [
     color: Color(0xFFFD443C),
     type: ItemType.light,
   ),
-  Temperature(
+  TemperatureTemp(
     name: 'Smart AC',
     iconOn: Icons.ac_unit,
     iconOff: Icons.ac_unit,

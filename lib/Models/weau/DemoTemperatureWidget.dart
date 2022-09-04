@@ -5,7 +5,7 @@ import 'package:planteco/Models/weau/temperature.dart';
 
 
 class DemoTemperatureWidget extends StatefulWidget {
-  Temperature? temperature;
+  TemperatureEau? temperature;
   Function(double)? onChanged;
 
   DemoTemperatureWidget({this.temperature, this.onChanged});
