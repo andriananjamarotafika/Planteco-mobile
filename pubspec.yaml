@@ -78,9 +78,15 @@ flutter:
     - images/logo.png
     - images/logorond.png
     - images/fond.png
-    - images/assets/images/thermo.png
-    - images/assets/images/eau.png
-    - images/assets/images/time.png
+    - images/arrosage.png
+    - images/humidite.png
+    - images/recolte.png
+    - images/temperature.png
+    - images/assets/carotte.png
+    - images/assets/cocombre.png
+    - images/assets/laitue.png
+    - images/assets/tomate.png
+    - images/assets/patate.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

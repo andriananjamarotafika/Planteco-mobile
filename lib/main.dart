@@ -1,16 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:planteco/view/home.dart';
 import 'view/login.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'view/inscription.dart';
-import 'view/home.dart';
 import 'dart:async';
-import 'collection.dart';
-
-import 'View/trainingList.dart';
-import 'Listanimation.dart';
-import 'inscription.dart';
-import 'Navibar.dart';
 
 
 void main() {
@@ -34,7 +25,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: HexColor("#F6F6F6"),
       ),
       
-      home: Navibar(),
+      home: MyHomePage(),
     );
   }
 }

@@ -1,12 +1,15 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:planteco/collection.dart';
-import 'package:planteco/settingPage.dart';
-import 'view/home.dart';
-import 'view/dataCollect.dart';
-
+import 'package:planteco/View/settingPage/settingPage.dart';
+import 'View/accueil/homeFirstPage.dart';
+import 'View/accueil/plantation.dart';
+import 'View/dataCollect.dart';
 
 class Navibar extends StatefulWidget {
+  const Navibar({super.key});
+
   @override
   _NavibarState createState() => _NavibarState();
 }
@@ -29,6 +32,7 @@ class _NavibarState extends State<Navibar> {
 
   Widget build(BuildContext context) {
     return Scaffold(
+   
       body: SizedBox.expand(
         child: PageView(
           controller: _pageController,
@@ -36,17 +40,17 @@ class _NavibarState extends State<Navibar> {
             setState(() => _currentIndex = index);
           },
           children: const <Widget>[
-            HomePage(),
+            HomeFirstPage(),
             SettingPage(),
             Collection(),
-            dataPage()
+            DataPage()
           ],
         ),
       ),
       bottomNavigationBar: BottomNavyBar(
         selectedIndex: _currentIndex,
         onItemSelected: (index) {
-          setState(() => _currentIndex = index);
+          setState(()=>_currentIndex = index);
           _pageController.jumpToPage(index);
         },
         items: <BottomNavyBarItem>[

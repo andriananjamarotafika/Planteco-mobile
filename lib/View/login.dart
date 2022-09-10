@@ -1,11 +1,9 @@
-// ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
 import 'package:auth_buttons/auth_buttons.dart';
 import 'package:hexcolor/hexcolor.dart';
-import '../inscription.dart';
+import 'inscription.dart';
 import '../Navibar.dart';
-//import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -40,8 +38,8 @@ class _LoginPageState extends State<LoginPage> {
                 child: Container(
                   width: double.infinity,
                   height: 200,
-                  decoration: BoxDecoration(
-                      gradient: LinearGradient(colors: const [
+                  decoration: const BoxDecoration(
+                      gradient: LinearGradient(colors: [
                     Color.fromARGB(255, 90, 185, 93),
                     Color.fromARGB(255, 18, 123, 22)
                   ])),
@@ -132,12 +130,17 @@ class _LoginPageState extends State<LoginPage> {
                 //CONNEXION
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.white, backgroundColor: Colors.green, shape: const StadiumBorder(),
+                    foregroundColor: Colors.white,
+                    backgroundColor: Colors.green,
+                    shape: const StadiumBorder(),
                     minimumSize: const Size(300, 60),
                     maximumSize: const Size(300, 60),
                   ),
                   onPressed: () {
-                    
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Navibar()),
+                    );
                   },
                   child: const Text(
                     'Connexion',
@@ -183,10 +186,8 @@ class _LoginPageState extends State<LoginPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    // ignore: prefer_const_constructors
                     Text(
                       "Créer un compte?",
-                      // ignore: prefer_const_constructors
                       style: TextStyle(
                           fontFamily: 'Montserrat',
                           fontSize: 12,
@@ -200,7 +201,6 @@ class _LoginPageState extends State<LoginPage> {
                               builder: (context) => Inscription()),
                         );
                       },
-                      // ignore: prefer_const_constructors
                       child: Text(
                         "Inscrivez-vous",
                         style: TextStyle(

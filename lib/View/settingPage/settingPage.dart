@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:planteco/setting.dart';
-
-import 'menuDrawer.dart';
+import '../../menuDrawer.dart';
 
 class SettingPage extends StatefulWidget {
   const SettingPage({super.key});
@@ -17,6 +13,7 @@ class _SettingPageState extends State<SettingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: const Text("Paramètre",style: TextStyle(fontFamily: 'Montserrat',fontWeight: FontWeight.bold,color: Colors.black),),
         iconTheme: const IconThemeData(color: Colors.black),
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -32,9 +29,7 @@ class _SettingPageState extends State<SettingPage> {
       drawer: MenuDrawer(),
       body: Container(
         margin: EdgeInsets.all(20),
-        child:
-          Setting(),
-      
+        
       ),
     );
   }
