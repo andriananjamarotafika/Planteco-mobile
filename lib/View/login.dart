@@ -59,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
             ],
           ),
           SizedBox(
-            height: 500,
+            height: 450,
             child: SingleChildScrollView(
               scrollDirection: Axis.vertical,
               child: Column(children: [

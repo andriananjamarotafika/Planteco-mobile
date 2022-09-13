@@ -12,3 +12,4 @@ List<ParametreAccueil> param = [
   ParametreAccueil('images/humidite.jpg', '20%', 'Humidité'),
   ParametreAccueil('images/recolte.jpg', '35 j', 'Récolte'),
 ];
+

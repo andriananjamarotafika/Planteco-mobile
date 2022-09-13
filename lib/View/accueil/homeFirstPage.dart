@@ -1,5 +1,8 @@
+// ignore_for_file: prefer_const_literals_to_create_immutables
+
 import 'package:flutter/material.dart';
 import 'package:planteco/View/accueil/plantation.dart';
+import 'package:planteco/View/accueil/visualisation.dart';
 import '../../menuDrawer.dart';
 import 'accueilParams.dart';
 
@@ -14,7 +17,7 @@ class _HomeFirstPageState extends State<HomeFirstPage> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 2,
+      length: 3,
       child: Scaffold(
         appBar: AppBar(
           iconTheme: const IconThemeData(color: Colors.black),
@@ -66,14 +69,14 @@ class _HomeFirstPageState extends State<HomeFirstPage> {
                         // width: MediaQuery.of(context).size.width,
                         children: [
                           const Text(
-                            "Bonjour Madame Audrey",
+                            "Tableaux de bord",
                             style: TextStyle(
                                 fontFamily: 'Montserrat',
-                                fontSize: 20,
+                                fontSize: 25,
                                 fontWeight: FontWeight.bold),
                           ),
                           SizedBox(
-                            width: MediaQuery.of(context).size.width / 15,
+                            width: MediaQuery.of(context).size.width / 10,
                           ),
                           // ignore: prefer_const_constructors
                           CircleAvatar(
@@ -107,6 +110,16 @@ class _HomeFirstPageState extends State<HomeFirstPage> {
                         "Paramètres",
                         style: TextStyle(
                           fontFamily: 'Montserrat',
+                           fontSize: 12
+                        ),
+                      ),
+                    ),
+                    Tab(
+                      child: Text(
+                        "Visualisation",
+                        style: TextStyle(
+                          fontFamily: 'Montserrat',
+                         fontSize: 12
                         ),
                       ),
                     ),
@@ -115,16 +128,17 @@ class _HomeFirstPageState extends State<HomeFirstPage> {
                         "Plantations",
                         style: TextStyle(
                           fontFamily: 'Montserrat',
+                          fontSize: 12
                         ),
                       ),
                     ),
                   ],
                 ),
               ),
-              const Expanded(
+                const Expanded(
                   flex: 5,
                   child: TabBarView(
-                    children: [AccueilParams(), Collection()],
+                    children: [AccueilParams(),Visualisation(), Collection()],
                   ))
             ],
           ),

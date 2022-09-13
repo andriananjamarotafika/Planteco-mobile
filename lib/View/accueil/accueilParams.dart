@@ -26,7 +26,7 @@ class AccueilParams extends StatelessWidget {
                     //TEMPERATURE
                     Container(
                       margin: const EdgeInsets.only(bottom: 10, top: 10),
-                      height: 400 / 4,
+                      height: 100,
                       decoration: BoxDecoration(
                         image: const DecorationImage(
                             image: AssetImage("images/temperature.png"),
@@ -97,7 +97,7 @@ class AccueilParams extends StatelessWidget {
                                     fontFamily: 'Montserrat',
                                     color: Colors.blue),
                               ),
-                              Text("2X",
+                              Text("Spray",
                                   style: TextStyle(
                                       fontFamily: 'Montserrat', fontSize: 40)),
                             ],

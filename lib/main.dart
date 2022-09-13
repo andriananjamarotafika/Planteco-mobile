@@ -18,7 +18,6 @@ class MyApp extends StatelessWidget {
         "LoginPage": (BuildContext context) => const LoginPage(),
          "MyHomePage": (BuildContext context) => const MyHomePage(),
       },
-      //EFFACE LE DEBUG EN HAUT A DROITE DE L' ECRAN
       debugShowCheckedModeBanner: false,
       title: 'Planteco',
       theme: ThemeData(
