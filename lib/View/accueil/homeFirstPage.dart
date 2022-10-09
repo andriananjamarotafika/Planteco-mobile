@@ -1,8 +1,10 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables
 
+
 import 'package:flutter/material.dart';
 import 'package:planteco/View/accueil/plantation.dart';
 import 'package:planteco/View/accueil/visualisation.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import '../../menuDrawer.dart';
 import 'accueilParams.dart';
 
@@ -56,8 +58,8 @@ class _HomeFirstPageState extends State<HomeFirstPage> {
                     children: [
                       SizedBox(
                         width: MediaQuery.of(context).size.width,
-                        child: const Text(
-                          "Mardi 06 septembre 2022",
+                        child:  Text(
+                          FirebaseAuth.instance.currentUser!.displayName!,
                           style: TextStyle(fontFamily: 'Montserrat'),
                         ),
                       ),

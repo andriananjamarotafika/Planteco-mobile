@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:auth_buttons/auth_buttons.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:planteco/auth_service.dart';
 import 'inscription.dart';
 import '../Navibar.dart';
 
@@ -167,7 +168,9 @@ class _LoginPageState extends State<LoginPage> {
                   child: GoogleAuthButton(
                     onPressed: () {
                       // your implementation
-                      setState(() {});
+                      setState(() {
+                        AuthService().signInWithGoogle();
+                      });
                     },
                     themeMode: ThemeMode.light,
                     isLoading: false,

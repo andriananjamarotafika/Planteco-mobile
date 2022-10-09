@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'auth_service.dart';
+
 class MenuDrawer extends StatelessWidget {
   const MenuDrawer({
     Key? key,
@@ -183,7 +185,9 @@ class MenuDrawer extends StatelessWidget {
                   fontFamily: 'Montserrat',
                 ),
               ),
-              onTap: () {},
+              onTap: () {
+                AuthService().signOut();
+              },
             ),
           ),
         ],

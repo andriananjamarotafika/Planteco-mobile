@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'auth_service.dart';
 import 'view/login.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'dart:async';
+import 'package:firebase_core/firebase_core.dart';
 
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -24,7 +28,8 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: HexColor("#F6F6F6"),
       ),
       
-      home: MyHomePage(),
+      home: AuthService().handleAuthState(),
+
     );
   }
 }
