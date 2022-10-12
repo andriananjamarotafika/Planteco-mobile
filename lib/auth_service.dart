@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:planteco/main.dart';
+import 'Navibar.dart';
 import 'View/accueil/homeFirstPage.dart';
 import 'View/login.dart';
 
@@ -11,8 +13,9 @@ class AuthService{
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (BuildContext context, snapshot) {
           if (snapshot.hasData) {
-            return HomeFirstPage();
-          } else {
+            return const Navibar();
+          } 
+          else {
             return  const LoginPage();
           }
         });

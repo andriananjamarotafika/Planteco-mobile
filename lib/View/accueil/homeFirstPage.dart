@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:planteco/View/accueil/plantation.dart';
 import 'package:planteco/View/accueil/visualisation.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import '../../Bluetooth/MainBluetooth.dart';
 import '../../menuDrawer.dart';
 import 'accueilParams.dart';
 
@@ -29,10 +30,15 @@ class _HomeFirstPageState extends State<HomeFirstPage> {
           actions: [
             Container(
               margin: const EdgeInsets.only(right: 20),
-              child: const Icon(
-                Icons.notifications,
-                size: 30,
-                color: Colors.black,
+              child:  IconButton(
+                icon: Icon(Icons.bluetooth),
+                color: Colors.black, onPressed: () { 
+                    Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) =>   Bluetooth(),
+    ),
+  );
+                 },
               ),
             ),
           ],
