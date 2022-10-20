@@ -18,11 +18,17 @@ class DataCollection {
 
 }
   List<DataCollection> dataFormation = [
-  DataCollection("images/assets/carotte.png", "Carotte",15,2,85,65),
-  DataCollection("images/assets/tomate.png", "Tomate",15,2,85,65),
-  DataCollection("images/assets/cocombre.png", "Cocombre",15,2,85,65),
-  DataCollection("images/assets/patate.png", "Pomme de terre",15,2,85,65),
-  DataCollection("images/assets/laitue.png", "Laitue",15,2,85,65),
+  DataCollection("images/assets/carotte.png", "Carotte",10,3,30,130),
+  DataCollection("images/assets/tomate.png", "Tomate",15,2,85,150),
+  DataCollection("images/assets/cocombre.png", "Cocombre",25,1,70,110),
+  DataCollection("images/assets/patate.png", "Pomme de terre",20,2,85,80),
+ 
+
+];
+
+List<DataCollection> dataPlantation = [
+  DataCollection("images/assets/fraise.jpg", "Fraise",12,3,40,180),
+
 
 ];
 

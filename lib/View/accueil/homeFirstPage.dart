@@ -5,9 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:planteco/View/accueil/plantation.dart';
 import 'package:planteco/View/accueil/visualisation.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import '../../Bluetooth/MainBluetooth.dart';
+import '../../Bluetooth/MainPage.dart';
 import '../../menuDrawer.dart';
 import 'accueilParams.dart';
+import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 
 class HomeFirstPage extends StatefulWidget {
   const HomeFirstPage({Key? key}) : super(key: key);
@@ -17,8 +18,10 @@ class HomeFirstPage extends StatefulWidget {
 }
 
 class _HomeFirstPageState extends State<HomeFirstPage> {
+  
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context,) {
+    
     return DefaultTabController(
       length: 3,
       child: Scaffold(
@@ -27,21 +30,6 @@ class _HomeFirstPageState extends State<HomeFirstPage> {
           backgroundColor: Colors.transparent,
           elevation: 0,
           centerTitle: true,
-          actions: [
-            Container(
-              margin: const EdgeInsets.only(right: 20),
-              child:  IconButton(
-                icon: Icon(Icons.bluetooth),
-                color: Colors.black, onPressed: () { 
-                    Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) =>   Bluetooth(),
-    ),
-  );
-                 },
-              ),
-            ),
-          ],
         ),
         drawer: const MenuDrawer(),
         body: Padding(
@@ -155,6 +143,8 @@ class _HomeFirstPageState extends State<HomeFirstPage> {
     );
   }
 }
+
+
 
 
 

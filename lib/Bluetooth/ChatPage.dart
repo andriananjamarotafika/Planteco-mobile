@@ -8,7 +8,7 @@ import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 class ChatPage extends StatefulWidget {
   final BluetoothDevice server;
 
-  const ChatPage({required this.server});
+  const ChatPage({required this.server, required String valeursend});
 
   @override
   _ChatPage createState() => new _ChatPage();

@@ -4,17 +4,22 @@ import 'package:slide_popup_dialog_null_safety/slide_popup_dialog.dart'
     as slideDialog;
 import 'package:sleek_circular_slider/sleek_circular_slider.dart';
 
+import '../../Services/link_acceuil_chat_bluetooth.dart';
+
+
 class AccueilParams extends StatefulWidget {
   const AccueilParams({super.key});
+  
 
   @override
   State<AccueilParams> createState() => _AccueilParamsState();
 }
 
 class _AccueilParamsState extends State<AccueilParams> {
+  LinkBluetooth linkBluetooth = new LinkBluetooth();
   double currentSliderValueTemp = 15;
   double currentSliderValueHum = 15;
-  int humidite = 10;
+  int humidite = 30;
   int temperature = 10;
   @override
   Widget build(BuildContext context) {
@@ -33,6 +38,7 @@ class _AccueilParamsState extends State<AccueilParams> {
                 duration: const Duration(milliseconds: 2500),
                 child: Column(
                   children: [
+                    
                     //TEMPERATURE
                     TextButton(
                       onPressed: _showDialog1,
@@ -81,9 +87,57 @@ class _AccueilParamsState extends State<AccueilParams> {
                       ),
                     ),
 
-                    //ARROSSAGE
+                               //HUMIDITE
                     TextButton(
                       onPressed: _showDialog2,
+                      child: Container(
+                        margin: const EdgeInsets.only(bottom: 10, top: 10),
+                        height: 100,
+                        decoration: BoxDecoration(
+                          image: const DecorationImage(
+                              image: AssetImage("images/humidite.png"),
+                              fit: BoxFit.cover),
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(20)),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.05),
+                              blurRadius: 10,
+                              spreadRadius: 5,
+                            ),
+                          ],
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          // ignore: prefer_const_literals_to_create_immutables
+                          children: [
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const Text(
+                                  "Humidité",
+                                  style: TextStyle(
+                                      fontFamily: 'Montserrat',
+                                      color: Colors.orange),
+                                ),
+                                Text("$humidite%",
+                                    style: const TextStyle(
+                                        fontFamily: 'Montserrat',
+                                        fontSize: 40,
+                                        color: Colors.black)),
+                              ],
+                            ),
+                            const SizedBox(
+                              width: 20,
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+
+                    //ARROSSAGE
+                    TextButton(
+                      onPressed: null,
                       child: Container(
                         margin: const EdgeInsets.only(bottom: 10, top: 10),
                         height: 100,
@@ -117,7 +171,8 @@ class _AccueilParamsState extends State<AccueilParams> {
                                 Text("Spray",
                                     style: TextStyle(
                                         fontFamily: 'Montserrat',
-                                        fontSize: 40)),
+                                        fontSize: 40,
+                                        color: Colors.black)),
                               ],
                             ),
                             const SizedBox(
@@ -128,56 +183,11 @@ class _AccueilParamsState extends State<AccueilParams> {
                       ),
                     ),
 
-                    //HUMIDITE
-                    TextButton(
-                      onPressed: _showDialog2,
-                      child: Container(
-                        margin: const EdgeInsets.only(bottom: 10, top: 10),
-                        height: 400 / 4,
-                        decoration: BoxDecoration(
-                          image: const DecorationImage(
-                              image: AssetImage("images/humidite.png"),
-                              fit: BoxFit.cover),
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(20)),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black.withOpacity(0.05),
-                              blurRadius: 10,
-                              spreadRadius: 5,
-                            ),
-                          ],
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          // ignore: prefer_const_literals_to_create_immutables
-                          children: [
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                const Text(
-                                  "Humidité",
-                                  style: TextStyle(
-                                      fontFamily: 'Montserrat',
-                                      color: Colors.orange),
-                                ),
-                                Text("$humidite%",
-                                    style: const TextStyle(
-                                        fontFamily: 'Montserrat',
-                                        fontSize: 40)),
-                              ],
-                            ),
-                            const SizedBox(
-                              width: 20,
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
+         
 
                     //RECOLTE
                     TextButton(
-                      onPressed: _showDialog4,
+                      onPressed: null,
                       child: Container(
                         margin: const EdgeInsets.only(bottom: 10, top: 10),
                         height: 400 / 4,
@@ -211,7 +221,8 @@ class _AccueilParamsState extends State<AccueilParams> {
                                 Text("60j",
                                     style: TextStyle(
                                         fontFamily: 'Montserrat',
-                                        fontSize: 40)),
+                                        fontSize: 40,
+                                        color: Colors.black)),
                               ],
                             ),
                             const SizedBox(
@@ -231,6 +242,7 @@ class _AccueilParamsState extends State<AccueilParams> {
     );
   }
 
+
   void _showDialog1() {
     slideDialog.showSlideDialog(
       context: context,
@@ -244,7 +256,8 @@ class _AccueilParamsState extends State<AccueilParams> {
             onChange: (double value) {
               currentSliderValueHum = value;
               // callback providing a value while its being changed (with a pan gesture)
-              print(value);
+              //print(value);
+              linkBluetooth.affiche(value.toString()); 
             },
             onChangeStart: (double startValue) {
               // callback providing a starting value (when a pan gesture starts)
@@ -267,6 +280,7 @@ class _AccueilParamsState extends State<AccueilParams> {
                   onPressed: () {
                     setState(() {
                       temperature = currentSliderValueHum.toInt();
+                       linkBluetooth.sendData();
                     });
                     return;
                   },
@@ -350,4 +364,6 @@ class _AccueilParamsState extends State<AccueilParams> {
       ),
     );
   }
+  
 }
+

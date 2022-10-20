@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:planteco/View/settingPage/parametreList.dart';
+import 'package:planteco/Models/dataCollection.dart';
 import '../../menuDrawer.dart';
+import '../components/getListView.dart';
 
-class SettingPage extends StatefulWidget {
-  const SettingPage({super.key});
+class CollectPage extends StatefulWidget {
+  const CollectPage({super.key});
 
   @override
-  State<SettingPage> createState() => _SettingPageState();
+  State<CollectPage> createState() => _CollectPageState();
 }
 
-class _SettingPageState extends State<SettingPage> {
+class _CollectPageState extends State<CollectPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Paramètre",style: TextStyle(fontFamily: 'Montserrat',fontWeight: FontWeight.bold,color: Colors.black),),
+        title: const Text("Collection",style: TextStyle(fontFamily: 'Montserrat',fontWeight: FontWeight.bold,color: Colors.black),),
         iconTheme: const IconThemeData(color: Colors.black),
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -29,7 +30,7 @@ class _SettingPageState extends State<SettingPage> {
       ),
       drawer: MenuDrawer(),
       body: Container(
-        child: ParamsList(),
+        child: getListView(dataFormation),
         
       ),
     );

@@ -61,10 +61,11 @@ Widget getListView(item) {
                       const SizedBox(
                         height: 10,
                       ),
-                      Text("${list[index].temperature}°C | ${list[index].eau}X | 50% | 25j",
+                      Text("${list[index].temperature}°C | ${list[index].eau}X | ${list[index].humidite}% | ${list[index].time}j",
                           style: const TextStyle(
                             fontFamily: 'Montserrat',
                             fontWeight: FontWeight.bold,
+                            fontSize: 12
                           ))
                     ]),
                   ),
