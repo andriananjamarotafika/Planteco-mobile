@@ -1,3 +1,5 @@
+// ignore_for_file: sort_child_properties_last
+
 import 'dart:async';
 import 'dart:convert';
 import 'dart:typed_data';
@@ -5,10 +7,13 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 
+import '../View/settingPage/parametreList.dart';
+import '../Services/link_acceuil_chat_bluetooth.dart';
+
 class ChatPage extends StatefulWidget {
   final BluetoothDevice server;
 
-  const ChatPage({required this.server, required String valeursend});
+  ChatPage({super.key, required this.server, required String valeursend});
 
   @override
   _ChatPage createState() => new _ChatPage();
@@ -85,6 +90,7 @@ class _ChatPage extends State<ChatPage> {
 
   @override
   Widget build(BuildContext context) {
+    LinkBluetooth linkBluetooth = new LinkBluetooth();
     final List<Row> list = messages.map((_message) {
       return Row(
         children: <Widget>[
@@ -93,9 +99,9 @@ class _ChatPage extends State<ChatPage> {
                 (text) {
                   return text == '/shrug' ? '¯\\_(ツ)_/¯' : text;
                 }(_message.text.trim()),
-                style: TextStyle(color: Colors.white)),
-            padding: EdgeInsets.all(12.0),
-            margin: EdgeInsets.only(bottom: 8.0, left: 8.0, right: 8.0),
+                style: const TextStyle(color: Colors.white)),
+            padding: const EdgeInsets.all(12.0),
+            margin: const EdgeInsets.only(bottom: 8.0, left: 8.0, right: 8.0),
             width: 222.0,
             decoration: BoxDecoration(
                 color:
@@ -112,11 +118,28 @@ class _ChatPage extends State<ChatPage> {
     final serverName = widget.server.name ?? "Unknown";
     return Scaffold(
       appBar: AppBar(
-          title: (isConnecting
-              ? Text('Connecting chat to ' + serverName + '...')
-              : isConnected
-                  ? Text('Live chat with ' + serverName)
-                  : Text('Chat log with ' + serverName))),
+        title: (isConnecting
+            ? Text(
+                'En attente de Connexion avec $serverName...',
+                style: const TextStyle(
+                    fontFamily: 'Montserrat',
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black),
+              )
+            : isConnected
+                ? const Text(
+                    'Paramètrer la serre',
+                    style: TextStyle(
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black),
+                  )
+                : Text('Paramètrer avec ' + serverName)),
+        iconTheme: const IconThemeData(color: Colors.black),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        centerTitle: true,
+      ),
       body: SafeArea(
         child: Column(
           children: <Widget>[
@@ -127,33 +150,29 @@ class _ChatPage extends State<ChatPage> {
                   children: list),
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+      
               children: <Widget>[
-                Flexible(
-                  child: Container(
-                    margin: const EdgeInsets.only(left: 16.0),
-                    child: TextField(
-                      style: const TextStyle(fontSize: 15.0),
-                      controller: textEditingController,
-                      decoration: InputDecoration.collapsed(
-                        hintText: isConnecting
-                            ? 'Wait until connected...'
-                            : isConnected
-                                ? 'Type your message...'
-                                : 'Chat got disconnected',
-                        hintStyle: const TextStyle(color: Colors.grey),
-                      ),
-                      enabled: isConnected,
-                    ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    foregroundColor: Colors.white,
+                    backgroundColor: Colors.green,
+                    shape: const StadiumBorder(),
+                    minimumSize: const Size(300, 60),
+                    maximumSize: const Size(300, 60),
                   ),
+                  onPressed: (){
+                    if(isConnected){
+                       _sendMessage("${linkBluetooth.valeur_recu_temp},${linkBluetooth.valeur_recu_hum},${linkBluetooth.valeur_recu_spr},");
+                    }else{
+                      null;
+                    }
+                  },
+                  child: Text("Transférer les données",style: TextStyle(fontFamily: "Montserrat",fontSize: 18),),
                 ),
-                Container(
-                  margin: const EdgeInsets.all(8.0),
-                  child: IconButton(
-                      icon: const Icon(Icons.send),
-                      onPressed: isConnected
-                          ? () => _sendMessage(textEditingController.text)
-                          : null),
-                ),
+                SizedBox(
+                  height: 100,
+                )
               ],
             )
           ],
